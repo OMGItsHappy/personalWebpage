@@ -1,0 +1,29 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+    $("button").click(function(){
+        $.ajax({
+            url : "/add",
+            type : "get",
+            contentType : "application/json",
+            data : {
+                toAdd : $("#input").val()
+            },
+            success : function(response)
+            {
+                $("button").text(response.result)
+            }
+        })
+        
+    })
+})
+
+
+
+</script>
+
+<button id = "Add">Add</button>
+
+<input type = "text", id = "input">

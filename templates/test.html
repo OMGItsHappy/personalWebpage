@@ -1,0 +1,28 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+<script>
+
+$(document).ready(function(){
+    $("button").click(function(){
+        $.ajax({
+            url : "/test",
+            type : "get",
+            contentType : "application/json",
+            data : {
+                toAdd : $("#inputField").val()
+            },
+            success : function(response)
+            {
+                $("#btn").text(response.result)
+            }
+        })
+    })
+})
+
+</script>
+
+<label>Enter two numbers spaced together to add them</label>
+
+<button id = "btn">Here</button>
+<input id = "inputField", type = "text">

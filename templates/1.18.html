@@ -1,0 +1,39 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+
+setInterval(ajaxCall, 1000)
+
+function ajaxCall() {
+    $(document).ready(function(){
+        $.ajax({
+            url : "/1.18",
+            type : "get",
+            contentType : "application/json",
+            
+            success : function(response){
+
+                var newData = ""
+
+                for (let x in response.logs)
+                {
+                    newData += response.logs[x] + "<br>"
+                }
+
+                $("#Count").text(response.count),
+                $("#Logs").html(newData)
+                $("label").text(response.status)
+            }
+        })
+    })
+}
+
+</script>
+
+<label>Server Status</label>
+
+<p id="Count"></p>
+
+
+
+<p id="Logs"></p>
